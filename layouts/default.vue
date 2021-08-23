@@ -1,8 +1,11 @@
 <template>
   <div>
     <client-only>
-      <!-- v-if="$store.state.showDrafPreviewBanner" -->
-      <button class="refreshPreview" @click="$nuxt.refresh()">
+      <button
+        v-if="$store.state.showDrafPreviewBanner"
+        class="refreshPreview"
+        @click="$nuxt.refresh()"
+      >
         Draft Preview. Click here to refresh
       </button>
     </client-only>

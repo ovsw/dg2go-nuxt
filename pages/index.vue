@@ -9,8 +9,7 @@
       :text="siteHome.content.hero.text"
     />
 
-    <!-- <SectionsRenderer :sections="siteHome.content.sections" /> -->
-    <p>test {{ siteHome.content.hero.title }}</p>
+    <SectionsRenderer :sections="siteHome.content.sections" />
   </div>
 </template>
 
