@@ -16,24 +16,24 @@
 <script>
 const query = /* groq */ `{
   "siteHome": *[_type == 'siteHome'] {
-          ...,
-          content {
-            ...,
-            sections[] {
-              ...,
-              _type == "sponsorsSection" => {
-                sponsorsList[]->{
-                  ...
-                }
-              },
-              _type == "faqSection" => {
-                faqItems[]->{
-                  ...
-                }
-              }
-            }
+    ...,
+    content {
+      ...,
+      sections[] {
+        ...,
+        _type == "sponsorsSection" => {
+          sponsorsList[]->{
+            ...
           }
-        }[0]
+        },
+        _type == "faqSection" => {
+          faqItems[]->{
+            ...
+          }
+        }
+      }
+    }
+  }[0]
 }
 `
 

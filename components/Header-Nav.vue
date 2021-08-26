@@ -1,65 +1,79 @@
 <template>
   <nav
-    class="[ nav ] [ site-head__nav ] flex md:block mr-4 md:mr-0"
     id="nav-list"
+    class="[ nav ] [ site-head__nav ] flex md:block mr-4 md:mr-0"
     aria-label="Main Menu"
     :aria-expanded="menuOpen"
   >
     <ul
-      class="nav__list 
-      
-      absolute z-10 
-      shadow-lg md:shadow-none 
-
-      pt-6
-      pl-6
-      
-      bg-light-dark
-
-      space-y-4
-      justify-center 
-      overflow-y-scroll
-
-      w-full bg-light left-0 right-0 top-0
-
-      h-screen 
-
-      px-2 pb-32 
-      mt-8 
-
-      md:p-0 md:bg-light
-
-      md:static md:flex md:items-center md:mt-0  md:pb-2 md:pt-2 
-      md:overflow-y-visible
-      md:h-auto  
-       
-      md:space-y-0
-    "
-      style="top: 2.5rem;"
+      class="
+        nav__list
+        absolute
+        z-10
+        shadow-lg
+        md:shadow-none
+        pt-6
+        pl-6
+        space-y-4
+        justify-center
+        overflow-y-scroll
+        w-full
+        bg-light
+        left-0
+        right-0
+        top-0
+        h-screen
+        px-2
+        pb-32
+        mt-8
+        md:p-0
+        md:bg-light
+        md:static
+        md:flex
+        md:items-center
+        md:mt-0
+        md:pb-2
+        md:pt-2
+        md:overflow-y-visible
+        md:h-auto
+        md:space-y-0
+      "
+      style="top: 2.5rem"
       :class="menuOpen ? 'block' : 'hidden'"
     >
       <li class="nav__item">
-        <HeaderMegamenu :menuData="nav[0]" :menuIndex="1" />
+        <HeaderMegamenu :menu-data="nav[0]" :menu-index="1" />
       </li>
       <li class="nav__item">
-        <HeaderMegamenu :menuData="nav[1]" :menuIndex="2" />
+        <HeaderMegamenu :menu-data="nav[1]" :menu-index="2" />
       </li>
 
       <li class="nav__item">
-        <HeaderMegamenu :menuData="nav[2]" :menuIndex="3" />
+        <HeaderMegamenu :menu-data="nav[2]" :menu-index="3" />
       </li>
       <li class="nav__item">
-        <HeaderMegamenu :menuData="nav[3]" :menuIndex="4" />
+        <HeaderMegamenu :menu-data="nav[3]" :menu-index="4" />
       </li>
       <li class="nav__item">
-        <HeaderMegamenu :menuData="nav[4]" :menuIndex="5" />
+        <HeaderMegamenu :menu-data="nav[4]" :menu-index="5" />
       </li>
-      <li class="nav__item ">
+      <li class="nav__item">
         <a
           href="https://delgrossos.centeredgeonline.com/"
           target="_blank"
           rel="noopener"
-          class="block text-base focus:outline-none focus:text-light-light focus:bg-green md:pt-2 md:text-sm lg:text-base font-bold uppercase  md:px-2  text-center md:text-left "
+          class="
+            block
+            text-base
+            focus:outline-none focus:text-light-light focus:bg-green
+            md:pt-2 md:text-sm
+            lg:text-base
+            font-bold
+            uppercase
+            md:px-2
+            text-center
+            md:text-left
+          "
         >
           Store
         </a>
@@ -82,25 +96,25 @@
 </template>
 
 <script>
-import nav from "@/assets/nav2.json";
+import nav from '@/assets/nav2.json'
 export default {
   data() {
     return {
-      nav: nav,
-      menuOpen: false
-    };
+      nav,
+      menuOpen: false,
+    }
   },
   watch: {
     $route() {
-      this.menuOpen = false;
-    }
+      this.menuOpen = false
+    },
   },
   methods: {
     toggleMenu() {
-      this.menuOpen = !this.menuOpen;
-    }
-  }
-};
+      this.menuOpen = !this.menuOpen
+    },
+  },
+}
 </script>
 
 <style>
@@ -134,7 +148,7 @@ export default {
 
 .hamburger-menu div:before,
 .hamburger-menu div:after {
-  content: "";
+  content: '';
   position: absolute;
   width: inherit;
   height: inherit;
@@ -151,15 +165,15 @@ export default {
   transform: translate(-13px, 7px);
 }
 
-.hamburger-menu[data-open="true"] div {
+.hamburger-menu[data-open='true'] div {
   background-color: transparent;
 }
 
-.hamburger-menu[data-open="true"] div:before {
+.hamburger-menu[data-open='true'] div:before {
   transform: translate(-13px, 0) rotate(-45deg);
 }
 
-.hamburger-menu[data-open="true"] div:after {
+.hamburger-menu[data-open='true'] div:after {
   transform: translate(-13px, 0) rotate(45deg);
 }
 

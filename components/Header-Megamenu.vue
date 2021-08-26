@@ -1,12 +1,21 @@
 <template>
   <div
-    class="text-center md:text-left md:pt-2 lg:relative lg:px-1 xl:px-2"
     v-click-outside="hideMenu"
+    class="text-center md:text-left md:pt-2 lg:relative lg:px-1 xl:px-2"
   >
     <!-- FIXME: keyboard navigation: close menu on esc on child item doesnt work -->
     <!-- @mouseover="showMenu" @mouseleave="hideMenu" -->
     <button
-      class="md:text-sm lg:text-base focus:outline-none md:py-4 md:px-2 lg:px-4 focus:bg-green focus:text-light-light font-bold uppercase"
+      class="
+        md:text-sm
+        lg:text-base
+        focus:outline-none
+        md:py-4 md:px-2
+        lg:px-4
+        focus:bg-green focus:text-light-light
+        font-bold
+        uppercase
+      "
       @click="toggleMenu"
       @keydown.enter.exact.prevent="toggleMenu"
       @keydown.space.exact.prevent="toggleMenu"
@@ -26,13 +35,22 @@
     <transition name="mega-menu-fade">
       <div
         v-show="isVisible"
-        class="mega-menu 
-        w-full normal-case font-normal bg-light shadow-md rounded-lg border
-        z-30 left-0 overflow-hidden mt-4 
-
-        md:w-auto md:absolute md:left-2 md:right-2
-        
-        lg:w-160 lg:z-10 lg:-left-8 xl:-left-16
+        class="
+          mega-menu
+          w-full
+          normal-case
+          font-normal
+          bg-light
+          shadow-md
+          rounded-lg
+          border
+          z-30
+          left-0
+          overflow-hidden
+          mt-4
+          md:w-auto md:absolute md:left-2 md:right-2
+          lg:w-160 lg:z-10 lg:-left-8
+          xl:-left-16
         "
         :class="leftAdjustmentClasses"
       >
@@ -41,20 +59,29 @@
           <ul
             v-if="block.type == 'columnsSection'"
             :key="block.url"
-            class="flex flex-col md:flex-row md:flex-wrap  border-b pl-2 py-4 lg:px-6 lg:py-6 "
+            class="
+              flex flex-col
+              md:flex-row md:flex-wrap
+              border-b
+              pl-2
+              py-4
+              lg:px-6 lg:py-6
+            "
           >
             <li
               v-for="(item, index) in block.items"
               :key="index"
               class="
-              w-full md:w-1/2 
-              flex-shrink-0
-              p-2 
-              text-base md:text-lg
-              text-left
+                w-full
+                md:w-1/2
+                flex-shrink-0
+                p-2
+                text-base
+                md:text-lg
+                text-left
               "
               :class="[
-                item.subitems && item.subitems.length > 0 ? 'md:w-full' : ''
+                item.subitems && item.subitems.length > 0 ? 'md:w-full' : '',
               ]"
             >
               <NuxtLink
@@ -65,19 +92,23 @@
               >
                 <svg-icon
                   class="text-green"
-                  style="position: relative; top: 0.5em;"
+                  style="position: relative; top: 0.5em"
                   :name="item.icon"
                   height="1.5em"
                   width="1.5em"
                 />
                 <span class="ml-3">
                   <span
-                    class="block font-bold group-hover:text-green-light flex items-center"
+                    class="
+                      block
+                      font-bold
+                      group-hover:text-green-light
+                      flex
+                      items-center
+                    "
                   >
                     <span>{{ item.name }}</span>
-                    <span v-if="item.new == true" class="newTag">
-                      New
-                    </span>
+                    <span v-if="item.new == true" class="newTag"> New </span>
                   </span>
                   <span
                     class="block text-sm text-gray-800 group-hover:text-green"
@@ -88,7 +119,18 @@
               <!-- extra links start -->
               <span
                 v-if="item.subitems && item.subitems.length > 0"
-                class="block mt-2 ml-12 md:ml-8  text-sm text-gray-600 group-hover:text-yellow uppercase font-bold tracking-widest space-y-2 "
+                class="
+                  block
+                  mt-2
+                  ml-12
+                  md:ml-8
+                  text-sm text-gray-600
+                  group-hover:text-yellow
+                  uppercase
+                  font-bold
+                  tracking-widest
+                  space-y-2
+                "
               >
                 <span
                   v-for="(subitem, index) in item.subitems"
@@ -123,11 +165,23 @@
                 />
 
                 <span class="flex flex-col lg:flex-row lg:items-center">
-                  <span class="block ml-2 font-bold  group-hover:text-yellow">
+                  <span class="block ml-2 font-bold group-hover:text-yellow">
                     {{ item.name }}
                     <span
                       v-if="item.new == true"
-                      class="ml-1 bg-red text-yellow px-2 py-1 relative -inset-y-1 rounded-full uppercase font-bold text-xs"
+                      class="
+                        ml-1
+                        bg-red
+                        text-yellow
+                        px-2
+                        py-1
+                        relative
+                        -inset-y-1
+                        rounded-full
+                        uppercase
+                        font-bold
+                        text-xs
+                      "
                     >
                       New
                     </span>
@@ -135,7 +189,15 @@
                   <!-- description -->
                   <span
                     v-if="item.description != ''"
-                    class="block ml-2 lg:ml-4 mt-1 text-sm text-gray-600 group-hover:text-yellow opacity-75"
+                    class="
+                      block
+                      ml-2
+                      lg:ml-4
+                      mt-1
+                      text-sm text-gray-600
+                      group-hover:text-yellow
+                      opacity-75
+                    "
                     >{{ item.description }}
                   </span>
                 </span>
@@ -143,7 +205,14 @@
               <!-- extra links start -->
               <span
                 v-if="item.subitems.length > 0"
-                class="block mt-2 ml-2 lg:ml-4 text-sm text-gray-600 group-hover:text-yellow"
+                class="
+                  block
+                  mt-2
+                  ml-2
+                  lg:ml-4
+                  text-sm text-gray-600
+                  group-hover:text-yellow
+                "
               >
                 <span
                   v-for="(subitem, index) in item.subitems"
@@ -173,14 +242,12 @@
                 <img
                   src="@/assets/images/logos/DG2GO-logo-transparent-white.png"
                   alt="DG2Go Logo"
-                  class="w-56  lg:w-72"
+                  class="w-56 lg:w-72"
                 />
               </span>
               <span class="space-y-2">
-                <span class="block mt-2">
-                  Miss Our Food? Try DG2GO!
-                </span>
-                <span class="block ">
+                <span class="block mt-2"> Miss Our Food? Try DG2GO! </span>
+                <span class="block">
                   Delicious, homemade Meals, Pizza &amp; More! Ready for Pickup.
                 </span>
                 <span class="underline block">Click Here</span>
@@ -194,86 +261,86 @@
 </template>
 
 <script>
-import ClickOutside from "vue-click-outside";
+import ClickOutside from 'vue-click-outside'
 
 export default {
   props: {
     menuData: Object,
-    menuIndex: Number
+    menuIndex: Number,
   },
   directives: {
-    ClickOutside
+    ClickOutside,
   },
   mounted() {
-    this.menuItems = document.querySelectorAll(".mega-menu a");
+    this.menuItems = document.querySelectorAll('.mega-menu a')
   },
   computed: {
-    leftAdjustmentClasses: function() {
+    leftAdjustmentClasses() {
       return {
-        "lg:-left-80": this.menuIndex == 3 || this.menuIndex == 4,
-        "lg:-left-96": this.menuIndex == 5,
-        "xl:-left-60 2xl:-left-0": this.menuIndex == 5
-      };
+        'lg:-left-80': this.menuIndex == 3 || this.menuIndex == 4,
+        'lg:-left-96': this.menuIndex == 5,
+        'xl:-left-60 2xl:-left-0': this.menuIndex == 5,
+      }
     },
-    thirdItem: function() {
+    thirdItem() {
       if (this.menuIndex == 3) {
-        return true;
+        return true
       }
-      return false;
+      return false
     },
-    fourthItem: function() {
+    fourthItem() {
       if (this.menuIndex == 4) {
-        return true;
+        return true
       }
-      return false;
+      return false
     },
-    fifthItem: function() {
+    fifthItem() {
       if (this.menuIndex == 5) {
-        return true;
+        return true
       }
-      return false;
-    }
+      return false
+    },
   },
   data() {
     return {
       isVisible: false,
       menuItems: null,
-      focusedIndex: 0
-    };
+      focusedIndex: 0,
+    }
   },
   methods: {
     showMenu() {
-      this.isVisible = true;
+      this.isVisible = true
     },
     toggleMenu() {
-      this.isVisible = !this.isVisible;
+      this.isVisible = !this.isVisible
     },
     hideMenu() {
-      this.isVisible = false;
-      this.focusedIndex = 0;
+      this.isVisible = false
+      this.focusedIndex = 0
     },
     startArrowKeys() {
-      this.menuItems[0].focus();
+      this.menuItems[0].focus()
     },
     focusPrevious(isArrowKey) {
-      this.focusedIndex = this.focusedIndex - 1;
+      this.focusedIndex = this.focusedIndex - 1
 
       if (isArrowKey) {
-        this.focusItem();
+        this.focusItem()
       }
     },
     focusNext(isArrowKey) {
-      this.focusedIndex = this.focusedIndex + 1;
+      this.focusedIndex = this.focusedIndex + 1
 
       if (isArrowKey) {
-        this.focusItem();
+        this.focusItem()
       }
     },
     focusItem() {
-      this.menuItems[this.focusedIndex].focus();
-    }
-  }
-};
+      this.menuItems[this.focusedIndex].focus()
+    },
+  },
+}
 </script>
 
 <style scoped>
